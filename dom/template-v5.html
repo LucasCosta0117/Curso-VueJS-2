@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Diretiva 'v-once:' para evitar re-renderizações</title>
+</head>
+<body>
+    <div id="app">
+        <p v-once>{{ titulo }}</p>
+        <p>{{ saudacao() }}</p>
+        <p>
+            <a v-bind:href="link">Google</a>
+        </p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Usando VueJS!!',
+                bemVindo: 'Bem vindo ao VueJs!',
+                link: 'https://google.com.br'
+            },
+            methods: {
+                saudacao: function() {
+                    this.titulo = 'Bom dia!';
+                    return this.titulo;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
