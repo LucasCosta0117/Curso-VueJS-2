@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Interpolação - usando expressões simples dentro do double mustache</title>
+</head>
+<body>
+    <div id="app">
+        <p>INCREMENTO '+1': {{ contador }}</p>
+        <p>INCREMENTO '+2': {{ contador + 2}}</p>
+        <p>{{ contador <= 5 ? 'Contador é menor ou igual a 5' : 'Contador é maior que 5' }}</p>
+        <button v-on:click="somar">Somar 1</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0
+            },
+            methods: {
+                somar() {
+                    this.contador++;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
