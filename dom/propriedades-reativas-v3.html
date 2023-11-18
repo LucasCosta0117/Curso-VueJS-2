@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Propriedades reativas - Watch - Monitora as alterações de uma propriedade</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="aumentar">Aumentar</button>
+        <button v-on:click="aumentar2">Aumentar 2</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{ contador }} | {{ contador2 }}</p>
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0,
+                contador2: 0
+            },
+            computed: {
+                resultado() {
+                    console.log('method computed is called')
+                    return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
+                }
+            },
+            watch: {
+                contador(newValue, oldValue) {
+                    console.log(newValue, oldValue);
+                    /**
+                     * Interessante para ser aplicado junto com um AJAX, 
+                     * por exemplo, popular um comboBox secundário que é dependente de um outro campo.
+                     */
+                    setTimeout(() => {
+                        this.contador = 0;
+                    }, 2000);
+                }
+            },
+            methods: {
+                aumentar() {
+                    this.contador++;
+                },
+                aumentar2() {
+                    this.contador2++;
+                },
+                diminuir() {
+                    this.contador--;
+                },
+                // Nesse caso o método será chamado indepentende do valor de contador ter sido computado ou não.
+                // resultado() {
+                //     return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5';
+                // }
+            }
+        });
+    </script>
+</body>
+</html>
