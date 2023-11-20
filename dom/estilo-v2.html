@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Estilo dinâmico e classe CSS 02</title>
+    <style>
+        #app {
+            display: flex;
+            justify-content: space-around;
+        }
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+        .c1 {
+            background-color: red;
+        }
+        .c2 {
+            background-color: green;
+        }
+        .c3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="demo" @click="aplicaC1 = !aplicaC1" :class="{'c1': aplicaC1, 'c2': !aplicaC1}"></div> <!-- Forma menos sofisticada de alternar entre duas classes -->
+        <div class="demo" @click="aplicaC2 = !aplicaC2" :class="alternarC1C2"></div> <!-- Forma mais eficiente de alternar entre duas classes -->
+        <div class="demo" @click="aplicaC3 = !aplicaC3" :class="{'c3': aplicaC3}"></div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                aplicaC1: false,
+                aplicaC2: false,
+                aplicaC3: false
+            },
+            computed: {
+                alternarC1C2(){
+                    return {
+                        c1: this.aplicaC2,
+                        c2: !this.aplicaC2
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
