@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Estilo dinâmico e classe CSS 03 - vetor de propriedades</title>
+    <style>
+        .caixas {
+            display: flex;
+            justify-content: space-around;
+        }
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+        .c1 {
+            background-color: red;
+        }
+        .c2 {
+            background-color: green;
+        }
+        .c3 {
+            background-color: blue;
+        }
+        .girar {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="caixas">
+            <div class="demo" @click="aplicaC1 = !aplicaC1" :class="{'c1': aplicaC1}"></div>
+            <div class="demo" @click="aplicaGirar = !aplicaGirar" :class="[classeCSS, {'girar': aplicaGirar}]"></div>
+            <div class="demo" @click="aplicarGirar()" :class="estiloGirar"></div>
+        </div>
+        <hr>
+        <input type="text" v-model="classeCSS">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                aplicaC1: false,
+                classeCSS: 'c3',
+                aplicaGirar: false
+            },
+            computed: {
+                estiloGirar() {
+                    return {
+                        c3: this.classeCSS,
+                        girar: this.aplicaGirar
+                    }
+                }
+            },
+            methods: {
+                aplicarGirar() {
+                    this.aplicaGirar = !this.aplicaGirar;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
