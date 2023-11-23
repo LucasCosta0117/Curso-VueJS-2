@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Listas v1 - 'v-for' iterando sobre um array</title>
+</head>
+<body>
+        <div id="app">
+            <ul>
+                <li v-for="cor in cores">{{ cor }}</li>
+            </ul>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    cores: ['Vermelho', 'Verde', 'Amarelo', 'Azul'],
+                    pessoas: [
+                        {
+                            nome: 'Ana',
+                            idade: 26,
+                            peso: 59
+                        },
+                        {
+                            nome: 'Guilherme',
+                            idade: 22,
+                            peso: 89
+                        }
+                    ]
+                }
+            });
+        </script>
+</body>
+</html>
