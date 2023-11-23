@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Listas v5 - 'v-for' usando o atributo ':key' para identificar os elementos renderizador no 'v-for'</title>
+    <style>
+        #app > ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+        <div id="app">
+            <ul>
+                <!-- O key funciona como um identificador único para cada elemento renderizado na árvore DOM,
+                dessa forma o VueJs se torna mais efeciente ao trabalhar com a renderização, realocando os elementos
+                com base nessa 'dica' que é a 'key', sem precisar renderizar toda a lista novamente. -->
+                <li v-for="(cor, i) in cores" :key="cor">
+                    Position {{ i +1}}: {{ cor }}
+                </li>
+            </ul>
+            <input type="text" v-model="novaCor">
+            <button @click="cores.push(novaCor)">Adicionar nova Cor</button>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    cores: ['Vermelho', 'Verde', 'Amarelo', 'Azul'],
+                    pessoas: [
+                        {
+                            nome: 'Ana',
+                            idade: 26,
+                            peso: 59
+                        },
+                        {
+                            nome: 'Guilherme',
+                            idade: 22,
+                            peso: 89
+                        }
+                    ],
+                    novaCor: '',
+                }
+            });
+        </script>
+</body>
+</html>
