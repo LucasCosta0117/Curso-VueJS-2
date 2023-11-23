@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Listas v4 - 'v-for' iterando sobre uma Lista de números (usando um Literal)</title>
+    <style>
+        #app > ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+        <div id="app">
+            <ul>
+                <li v-for="pessoa in pessoas">
+                    Nome: {{ pessoa.nome }}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="pessoa in pessoas">
+                    <template v-for="(value, key, index) in pessoa">
+                        {{ key }}: {{ value }} ({{ index }}),
+                    </template>
+                </li>
+            </ul>
+            <div v-for="n in 10">
+                {{ n }}.: Item {{ n }}
+            </div>
+        </div>
+
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    cores: ['Vermelho', 'Verde', 'Amarelo', 'Azul'],
+                    pessoas: [
+                        {
+                            nome: 'Ana',
+                            idade: 26,
+                            peso: 59
+                        },
+                        {
+                            nome: 'Guilherme',
+                            idade: 22,
+                            peso: 89
+                        }
+                    ]
+                }
+            });
+        </script>
+</body>
+</html>
