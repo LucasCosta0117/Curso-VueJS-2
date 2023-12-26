@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Projeto 01 - Matador de Monstro</title>
+</head>
+<body>
+    <div class="app">
+        <div class="players">
+            <p>Jogador</p>
+            <p>Monstro</p>
+        </div>
+        <div class="players-health">
+            <div class="health-status">
+                <i class="material-symbols-outlined">favorite</i>
+                <div class="hp-bar-jogador"></div>
+                <span class="hp-value-jogador">100</span>
+            </div>
+            <div class="health-status">
+                <i class="material-symbols-outlined">favorite</i>
+                <div class="hp-bar-monstro"></div>
+                <span class="hp-value-monstro">100</span>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="before-start">
+                <input class="start-btn btn" type="button" value="Iniciar novo jogo">
+            </div>
+            <div class="after-start">
+                <input class="ataque-btn btn" type="button" value="Ataque">
+                <input class="especial-btn btn" type="button" value="Ataque especial">
+                <input class="curar-btn btn" type="button" value="Curar">
+                <input class="desistir-btn btn" type="button" value="Desistir">
+            </div>
+        </div>
+    </div>
+<script src="./app.js"></script>
+</body>
+</html>

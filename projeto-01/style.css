@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+    font-size: 100%;
+    text-decoration: none;
+    list-style-type: none;
+}
+.players {
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    font-weight: 800;
+}
+.players > p:first-child{
+    text-shadow: 1px 2px rgba(255, 0, 0, 0.6);
+}
+.players > p:last-child{
+    text-shadow: 1px 2px rgba(0, 128, 0, 0.6);
+}
+.players-health {
+    display: flex;
+    justify-content: space-around;
+}
+.health-status {
+    display: flex;
+}
+.health-status > span{
+    padding-left: 20px;
+    font-weight: 800;
+}
+.before-start {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+.after-start {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+.after-start :not(:first-child) {
+    margin-left: 50px;
+}
+.btn {
+    padding: 10px 30px;
+    border: solid 1px black;
+    border-radius: 7px;
+    box-shadow: 2px 4px gray;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.start-btn {
+    background-color: darkblue;
+    color: white;
+}
+.ataque-btn {
+    background-color: darkred;
+    color: white;
+}
+.especial-btn {
+    background-color: darkorange;
+    color: white;
+}
+.curar-btn {
+    background-color: darkgreen;
+    color: white;
+}
+.desistir-btn {
+    background-color: darkslategray;
+    color: white;
+}
+.hp-bar-jogador {
+    width: 300px;
+    height: 20px;
+    background-color: green;    
+}
+.hp-bar-monstro {
+    width: 300px;
+    height: 20px;
+    background-color: green;    
+}
+
+.material-symbols-outlined {
+    color: red;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
