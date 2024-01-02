@@ -56,17 +56,15 @@ new Vue({
                 this.inGame = false;
                 this.winner = 'P';
             }
+        },
+        logPlayerHit(newValue) {
+            this.hasLog = newValue.length > 0 ? true : false
         }
     },
     methods: {
-        startGame() {
+        startNewGame() {
             this.inGame = !this.inGame;
             this.endGame = false;
-            this.playerHealth = 100;
-            this.monsterHealth = 100;
-        },
-        finishGame() {
-            this.inGame = !this.inGame;
             this.hasLog = false;
             this.playerHealth = 100;
             this.monsterHealth = 100;

@@ -37,8 +37,13 @@
                     <p v-show="winner == 'M'">Você perdeu! :( </p>
                 </div>
             </div>
-            <div v-if="!inGame" @click="startGame()" class="before-start">
-                <input class="start-btn btn" type="button" value="Iniciar novo jogo">
+            <div v-if="!inGame" class="before-start">
+                <input 
+                    class="start-btn btn" 
+                    type="button" 
+                    value="Iniciar novo jogo"
+                    @click="startNewGame()"
+                >
             </div>
             <div v-else class="after-start">
                 <input 
@@ -58,10 +63,15 @@
                     type="button" 
                     value="Curar"
                     @click="healing()">
-                <input @click="finishGame()" class="desistir-btn btn" type="button" value="Desistir">
+                <input 
+                    class="desistir-btn btn" 
+                    type="button" 
+                    value="Desistir"
+                    @click="startNewGame()" 
+                >
             </div>
         </div>
-        <div v-show="hasLog" class="log-game">
+        <div v-if="hasLog" class="log-game">
             <div class="turno">
                 <span>1º Turno</span>
                 <p>JOGADOR ATACA COM 10</p>
