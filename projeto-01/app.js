@@ -84,7 +84,7 @@ new Vue({
                     this.monsterHealth = 0;
                 };
 
-                this.logGame.push({
+                this.logGame.unshift({
                     'MonsterHit': `Monstro ataca com ${monsterHit}`,
                     'PlayerHit': `Jogador ataca com ${playerHit}`
                 });
@@ -104,7 +104,7 @@ new Vue({
                     this.monsterHealth = 0;
                 };
 
-                this.logGame.push({
+                this.logGame.unshift({
                     'MonsterHit': `Monstro ataca com ${monsterHit}`,
                     'PlayerHit': `Jogador ataca com ${playerHit}`
                 });
@@ -124,7 +124,7 @@ new Vue({
                     this.playerHealth = 100;
                 };
 
-                this.logGame.push({
+                this.logGame.unshift({
                     'MonsterHit': `Monstro ataca com ${monsterHit}`,
                     'PlayerHit': `Jogador curado em ${playerHeal}`
                 });
