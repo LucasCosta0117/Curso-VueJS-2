@@ -9,8 +9,7 @@ new Vue({
         monsterHealth: 100,
         playerBar: '',
         monsterBar: '',
-        logPlayerHit: [],
-        logMonsterHit: [],
+        logGame: [],
     },
     watch: {
         playerHealth(newValue) {
@@ -34,6 +33,7 @@ new Vue({
                 this.inGame = false;
                 this.winner = 'M'
             }
+            console.log(this.logGame);
         },
         monsterHealth(newValue) {
             if (newValue > 20) {
@@ -72,52 +72,61 @@ new Vue({
         normalAttack() {
             if (this.playerHealth > 0 && this.monsterHealth > 0) {
                 const monsterHit = Math.floor((Math.random() *10) + 8);
-                this.logMonsterHit.push(`Monstro ataca com ${monsterHit}`);
                 this.playerHealth -= monsterHit;
                 if (this.playerHealth < 0) {
                     this.playerHealth = 0;
                 };
                 
                 const playerHit = Math.floor((Math.random() *10) + 5);
-                this.logPlayerHit.push(`Jogador ataca com ${playerHit}`);
                 this.monsterHealth -= playerHit;
                 if (this.monsterHealth < 0) {
                     this.monsterHealth = 0;
                 };
+
+                this.logGame.push({
+                    'MonsterHit': `Monstro ataca com ${monsterHit}`,
+                    'PlayerHit': `Jogador ataca com ${playerHit}`
+                });
             }
         },
         specialAttack() {
             if (this.playerHealth > 0 && this.monsterHealth > 0) {
                 const monsterHit = Math.floor((Math.random() *10) + 5);
-                this.logMonsterHit.push(`Monstro ataca com ${monsterHit}`);
                 this.playerHealth -= monsterHit;
                 if (this.playerHealth < 0) {
                     this.playerHealth = 0;
                 };
                 
                 const playerHit = Math.floor((Math.random() *10) + 8);
-                this.logPlayerHit.push(`Jogador ataca com ${playerHit}`);
                 this.monsterHealth -= playerHit;
                 if (this.monsterHealth < 0) {
                     this.monsterHealth = 0;
                 };
+
+                this.logGame.push({
+                    'MonsterHit': `Monstro ataca com ${monsterHit}`,
+                    'PlayerHit': `Jogador ataca com ${playerHit}`
+                });
             }
         },
         healing() {
             if (this.playerHealth < 100) {
                 const monsterHit = Math.floor((Math.random() *10) + 5);
-                this.logMonsterHit.push(`Monstro ataca com ${monsterHit}`);
                 this.playerHealth -= monsterHit;
                 if (this.playerHealth < 0) {
                     this.playerHealth = 0;
                 };
                 
                 const playerHeal = Math.floor((Math.random() *10) + 5);
-                this.logPlayerHit.push(`Jogador curado em ${playerHeal}`);
                 this.playerHealth += playerHeal;
                 if (this.playerHealth >= 100) {
                     this.playerHealth = 100;
                 };
+
+                this.logGame.push({
+                    'MonsterHit': `Monstro ataca com ${monsterHit}`,
+                    'PlayerHit': `Jogador curado em ${playerHeal}`
+                });
             }
         }
     }
