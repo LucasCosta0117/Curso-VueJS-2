@@ -20,14 +20,14 @@
                 <div class="hp-container">
                     <div class="hp-bar-jogador"></div>
                 </div>
-                <span class="hp-value-jogador">100</span>
+                <span class="hp-value-jogador">{{ playerHealth }}</span>
             </div>
             <div class="health-status">
                 <i class="material-symbols-outlined">favorite</i>
                 <div class="hp-container">
                     <div class="hp-bar-monstro"></div>
                 </div> 
-                <span class="hp-value-monstro">100</span>
+                <span class="hp-value-monstro">{{ monsterHealth }}</span>
             </div>
         </div>
         <div class="menu">
@@ -35,13 +35,18 @@
                 <input class="start-btn btn" type="button" value="Iniciar novo jogo">
             </div>
             <div v-else class="after-start">
-                <input class="ataque-btn btn" type="button" value="Ataque">
+                <input 
+                    class="ataque-btn btn" 
+                    type="button" 
+                    value="Ataque"
+                    @click="normalAttack()"
+                >
                 <input class="especial-btn btn" type="button" value="Ataque especial">
                 <input class="curar-btn btn" type="button" value="Curar">
                 <input @click="finishGame()" class="desistir-btn btn" type="button" value="Desistir">
             </div>
         </div>
-        <div class="log-game">
+        <div v-show="hasLog" class="log-game">
             <div class="turno">
                 <span>1º Turno</span>
                 <p>JOGADOR ATACA COM 10</p>
