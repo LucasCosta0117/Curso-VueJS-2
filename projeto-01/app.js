@@ -5,6 +5,44 @@ new Vue({
         hasLog: false,
         playerHealth: 100,
         monsterHealth: 100,
+        playerBar: '',
+        monsterBar: '',
+    },
+    watch: {
+        playerHealth() {
+            if (this.playerHealth > 20) {
+                const width = 300 * (this.playerHealth / 100);
+                this.playerBar = {
+                    'background-color' : 'green',
+                    'width': `${width}px`,
+                    'height': '20px',
+                };
+            } else {
+                const width = 300 * (this.playerHealth / 100);
+                this.playerBar = {
+                    'background-color' : 'red',
+                    'width': `${width}px`,
+                    'height': '20px',
+                };
+            }
+        },
+        monsterHealth() {
+            if (this.monsterHealth > 20) {
+                const width = 300 * (this.monsterHealth / 100);
+                this.monsterBar = {
+                    'background-color' : 'green',
+                    'width': `${width}px`,
+                    'height': '20px',
+                };
+            } else {
+                const width = 300 * (this.monsterHealth / 100);
+                this.monsterBar = {
+                    'background-color' : 'red',
+                    'width': `${width}px`,
+                    'height': '20px',
+                };
+            }
+        }
     },
     methods: {
         startGame() {

@@ -18,14 +18,14 @@
             <div class="health-status">
                 <i class="material-symbols-outlined">favorite</i>
                 <div class="hp-container">
-                    <div class="hp-bar-jogador"></div>
+                    <div class="hp-bar-jogador" :style="playerBar"></div>
                 </div>
                 <span class="hp-value-jogador">{{ playerHealth }}</span>
             </div>
             <div class="health-status">
                 <i class="material-symbols-outlined">favorite</i>
                 <div class="hp-container">
-                    <div class="hp-bar-monstro"></div>
+                    <div class="hp-bar-monstro" :style="monsterBar"></div>
                 </div> 
                 <span class="hp-value-monstro">{{ monsterHealth }}</span>
             </div>
