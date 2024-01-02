@@ -31,14 +31,14 @@
             </div>
         </div>
         <div class="menu">
-            <div class="before-start">
+            <div v-if="!inGame" @click="startGame()" class="before-start">
                 <input class="start-btn btn" type="button" value="Iniciar novo jogo">
             </div>
-            <div class="after-start">
+            <div v-else class="after-start">
                 <input class="ataque-btn btn" type="button" value="Ataque">
                 <input class="especial-btn btn" type="button" value="Ataque especial">
                 <input class="curar-btn btn" type="button" value="Curar">
-                <input class="desistir-btn btn" type="button" value="Desistir">
+                <input @click="finishGame()" class="desistir-btn btn" type="button" value="Desistir">
             </div>
         </div>
         <div class="log-game">
