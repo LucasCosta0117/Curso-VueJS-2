@@ -2,6 +2,8 @@ new Vue({
     el: '.app',
     data: {
         inGame: false,
+        endGame: false,
+        winner: '',
         hasLog: false,
         playerHealth: 100,
         monsterHealth: 100,
@@ -9,8 +11,8 @@ new Vue({
         monsterBar: '',
     },
     watch: {
-        playerHealth() {
-            if (this.playerHealth > 20) {
+        playerHealth(newValue) {
+            if (newValue > 20) {
                 const width = 300 * (this.playerHealth / 100);
                 this.playerBar = {
                     'background-color' : 'green',
@@ -18,16 +20,22 @@ new Vue({
                     'height': '20px',
                 };
             } else {
-                const width = 300 * (this.playerHealth / 100);
+                const width = 300 * (newValue / 100);
                 this.playerBar = {
                     'background-color' : 'red',
                     'width': `${width}px`,
                     'height': '20px',
                 };
             }
+            if (newValue <= 0) {
+                this.endGame = true;
+                this.inGame = false;
+                this.winner = 'M'
+            }
+            
         },
-        monsterHealth() {
-            if (this.monsterHealth > 20) {
+        monsterHealth(newValue) {
+            if (newValue > 20) {
                 const width = 300 * (this.monsterHealth / 100);
                 this.monsterBar = {
                     'background-color' : 'green',
@@ -35,18 +43,26 @@ new Vue({
                     'height': '20px',
                 };
             } else {
-                const width = 300 * (this.monsterHealth / 100);
+                const width = 300 * (newValue / 100);
                 this.monsterBar = {
                     'background-color' : 'red',
                     'width': `${width}px`,
                     'height': '20px',
                 };
+            }
+            if (newValue <= 0) {
+                this.endGame = true;
+                this.inGame = false;
+                this.winner = 'P';
             }
         }
     },
     methods: {
         startGame() {
             this.inGame = !this.inGame;
+            this.endGame = false;
+            this.playerHealth = 100;
+            this.monsterHealth = 100;
         },
         finishGame() {
             this.inGame = !this.inGame;

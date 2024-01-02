@@ -90,6 +90,15 @@ html {
     height: 20px;
     background-color: green;    
 }
+.winner {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-weight: 800;
+    text-shadow: 1px 2px darkorange;
+    text-transform: uppercase;
+    padding-top: 25px;
+}
 .log-game {
     padding-top: 20px;
 }

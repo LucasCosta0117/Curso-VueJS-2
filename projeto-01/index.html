@@ -31,6 +31,12 @@
             </div>
         </div>
         <div class="menu">
+            <div v-if="endGame" class="result-game">
+                <div class="winner">
+                    <p v-show="winner == 'P'">Você ganhou! :) </p>
+                    <p v-show="winner == 'M'">Você perdeu! :( </p>
+                </div>
+            </div>
             <div v-if="!inGame" @click="startGame()" class="before-start">
                 <input class="start-btn btn" type="button" value="Iniciar novo jogo">
             </div>
