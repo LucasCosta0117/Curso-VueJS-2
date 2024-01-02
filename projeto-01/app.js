@@ -57,7 +57,7 @@ new Vue({
                 this.winner = 'P';
             }
         },
-        logPlayerHit(newValue) {
+        logGame(newValue) {
             this.hasLog = newValue.length > 0 ? true : false
         }
     },
@@ -68,6 +68,7 @@ new Vue({
             this.hasLog = false;
             this.playerHealth = 100;
             this.monsterHealth = 100;
+            this.logGame = [];
         },
         normalAttack() {
             if (this.playerHealth > 0 && this.monsterHealth > 0) {

@@ -72,15 +72,10 @@
             </div>
         </div>
         <div v-if="hasLog" class="log-game">
-            <div class="turno">
-                <span>1º Turno</span>
-                <p>JOGADOR ATACA COM 10</p>
-                <p>MONSTRO ATACA COM 10</p>
-            </div>
-            <div class="turno">
-                <span>2º Turno</span>
-                <p>JOGADOR ATACA COM 10</p>
-                <p>MONSTRO ATACA COM 10</p>
+            <div v-for="(log, index) in logGame" :key="`log-${index}`" class="turno">
+                <span> {{ index + 1 }}º Turno</span>
+                <p>{{ log['PlayerHit'] }}</p>
+                <p>{{ log['MonsterHit'] }}</p>
             </div>
         </div>
     </div>
