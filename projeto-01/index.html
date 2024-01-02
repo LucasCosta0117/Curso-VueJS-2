@@ -47,7 +47,12 @@
                     value="Ataque"
                     @click="normalAttack()"
                 >
-                <input class="especial-btn btn" type="button" value="Ataque especial">
+                <input 
+                    class="especial-btn btn" 
+                    type="button" 
+                    value="Ataque especial"
+                    @click="specialAttack()"
+                >
                 <input class="curar-btn btn" type="button" value="Curar">
                 <input @click="finishGame()" class="desistir-btn btn" type="button" value="Desistir">
             </div>

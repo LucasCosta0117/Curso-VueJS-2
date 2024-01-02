@@ -82,6 +82,19 @@ new Vue({
                     this.monsterHealth = 0;
                 };
             }
+        },
+        specialAttack() {
+            if (this.playerHealth > 0 && this.monsterHealth > 0) {
+                this.playerHealth -= Math.floor((Math.random() *10) + 5);
+                if (this.playerHealth < 0) {
+                    this.playerHealth = 0;
+                };
+                
+                this.monsterHealth -= Math.floor((Math.random() *10) + 8);
+                if (this.monsterHealth < 0) {
+                    this.monsterHealth = 0;
+                };
+            }
         }
     }
 });
