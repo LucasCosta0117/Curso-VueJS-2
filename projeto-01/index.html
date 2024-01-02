@@ -53,7 +53,11 @@
                     value="Ataque especial"
                     @click="specialAttack()"
                 >
-                <input class="curar-btn btn" type="button" value="Curar">
+                <input 
+                    class="curar-btn btn" 
+                    type="button" 
+                    value="Curar"
+                    @click="healing()">
                 <input @click="finishGame()" class="desistir-btn btn" type="button" value="Desistir">
             </div>
         </div>

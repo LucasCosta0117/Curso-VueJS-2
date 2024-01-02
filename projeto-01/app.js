@@ -95,6 +95,19 @@ new Vue({
                     this.monsterHealth = 0;
                 };
             }
+        },
+        healing() {
+            if (this.playerHealth < 100) {
+                this.playerHealth -= Math.floor((Math.random() *10) + 5);
+                if (this.playerHealth < 0) {
+                    this.playerHealth = 0;
+                };
+                
+                this.playerHealth += Math.floor((Math.random() *10) + 6);
+                if (this.playerHealth >= 100) {
+                    this.playerHealth = 100;
+                };
+            }
         }
     }
 });
